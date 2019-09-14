@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'KhmerOSbattambang';
+    src: url("../fonts/KhmerOSbattambang.ttf");
+}
+
+@font-face {
+    font-family: 'KhmerOSmuollight';
+    src: url("../fonts/KhmerOSmuollight.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+page {
+    background-color: white;
+    display: block;
+    page-break-after: always;
+    padding: 20px;
+    font-family: Calibri, sans-serif, 'KhmerOSbattambang';
+    font-size: 12pt;
+}
+
+page table th,
+page table td {
+    text-align: left;
+}
+
+page > table.page-container,
+page > table.page-footer,
+page table.table {
+    width: 100%;
+    border: none;
+    border-collapse: collapse;
+}
+
+page > table.page-container > tfoot div.footer-space {
+    width: 100%;
+    /**
+     * Should overwrite height base on footer height
+     */
+    height: 20pt;
+}
+
+page table.table.table-bordered,
+page table.table.table-bordered th,
+page table.table.table-bordered td {
+    border: 1px solid black;
+}
+
+page table.table th,
+page table.table td {
+    padding: 5px 10px;
+}
+
+page table tr {
+    page-break-inside: avoid;
+}
+
+@media screen {
+    page {
+        margin: 10px auto;
+        position: relative;
+    }
+
+    page.with-shadow {
+        box-shadow: 0 0 0.2cm rgba(0, 0, 0, 0.5);
+    }
+
+    /*page[size="A4"][orientation="portrait"] {*/
+    /*    width: 21cm;*/
+    /*}*/
+
+    /*page[size="A4"][orientation="portrait"].min-height {*/
+    /*    width: 21cm;*/
+    /*    min-height: 29.7cm;*/
+    /*}*/
+
+    /*page[size="A4"][orientation="portrait"].max-height {*/
+    /*    max-height: 29.7cm;*/
+    /*}*/
+
+    /*page[size="A4"][orientation="landscape"] {*/
+    /*    width: 29.7cm;*/
+    /*}*/
+
+    /*page[size="A4"][orientation="landscape"].min-height {*/
+    /*    width: 29.7cm;*/
+    /*    min-height: 21cm;*/
+    /*}*/
+
+    /*page[size="A4"][orientation="landscape"].max-height {*/
+    /*    max-height: 21cm;*/
+    /*}*/
+}
+
+@media print {
+    *, page {
+        margin: 0;
+        padding: 0;
+    }
+
+    /**
+     * Margin type on browser must be set to Default
+     * This is beneficial when there are multiple pages
+     */
+    @page {
+        margin: 1cm;
+    }
+
+    /**
+     * Show the footer on all page
+     */
+    page > table.page-footer {
+        display: block;
+        position: fixed;
+        bottom: 0;
+    }
+
+    /**
+     * Depends on @page margin
+     */
+    page[size="A4"][orientation="portrait"] > table.page-footer > tbody > tr > td {
+        width: 20cm;
+    }
+
+    /**
+     * Depends on @page margin
+     */
+    page[size="A4"][orientation="landscape"] > table.page-footer > tbody > tr > td {
+        width: 28.7cm;
+    }
+}
