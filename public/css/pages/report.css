@@ -1,0 +1,16 @@
+#report-wrapper .tab-content {
+    border: none;
+}
+
+#report-wrapper .tab-content .tab-pane {
+    padding: 0;
+}
+
+#report-wrapper .nav-link {
+    color: #0c0c0c;
+}
+
+#report-wrapper .nav-link:hover,
+#report-wrapper .nav-link.active {
+    background: #f2f2f2;
+}
